@@ -6,7 +6,7 @@
 /*   By: rozhou <rozhou@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/04/15 13:19:23 by rozhou            #+#    #+#             */
-/*   Updated: 2022/04/15 14:25:47 by rozhou           ###   ########.fr       */
+/*   Updated: 2022/04/15 15:21:05 by rozhou           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,7 +24,10 @@ class Array
         int _size;
         
     public:
-        Array() : _size(0), _array(NULL) {};
+        Array() : _size(0)
+        {
+            this->_array = NULL;
+        }
         
         Array(unsigned int n): _size(n)
         {
@@ -57,7 +60,8 @@ class Array
             int i;
 
             delete [] this->_array;
-            i = -1;            
+            i = -1;
+            this->_array = new T[rhs._size];
             while (++i < rhs._size)
                 this->_array[i] = rhs._array[i];
             return (*this);
